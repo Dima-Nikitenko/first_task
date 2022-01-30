@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Pen">
+    <parameter name="AmountOfInk"  value="100"/>
+    <parameter name="SizeOfLetter"  value="100.0"/>
+    <parameter name="WhatColor"  value="TEST"/>
+    <test name="Constructors and fields">
+        <classes>
+            <class name="TestObjectCreation"/>
+            <class name="TestImpossibleValuesForPenFields"/>
+        </classes>
+    </test>
+    <test name="Auxiliary methods">
+        <classes>
+            <class name="TestGetColorMethod"/>
+            <class name="TestIsWorkMethod"/>
+            <class name="TestDoSomethingElseMethod"/>
+        </classes>
+    </test>
+    <test name="Write() method">
+        <classes>
+            <class name="TestWriteMethod"/>
+        </classes>
+    </test>
+</suite>
