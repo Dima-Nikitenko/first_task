@@ -7,14 +7,11 @@
     <test name="Constructors and fields">
         <classes>
             <class name="TestObjectCreation"/>
-            <class name="TestImpossibleValuesForPenFields"/>
         </classes>
     </test>
     <test name="Auxiliary methods">
         <classes>
-            <class name="TestGetColorMethod"/>
-            <class name="TestIsWorkMethod"/>
-            <class name="TestDoSomethingElseMethod"/>
+            <class name="TestAuxiliaryMethods"/>
         </classes>
     </test>
     <test name="Write() method">

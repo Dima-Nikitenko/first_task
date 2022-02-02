@@ -9,9 +9,7 @@ interface CreateObjectsInterface {
         return new Pen(ink, size);
     }
 
-    default Pen createObjectUsingThreeArgumentConstructor(Integer ink, Double size, String color) {
-        return new Pen(ink, size, color);
-    }
+    default Pen createObjectUsingThreeArgumentConstructor(Integer ink, Double size, String color) { return new Pen(ink, size, color); }
 }
 
 interface GetFieldsValuesInterface {

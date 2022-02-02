@@ -66,10 +66,7 @@ public class TestWriteMethod extends Assert implements CreateObjectsInterface, G
         Pen WWWVD = createObjectUsingTwoArgumentConstructor(ink, size);
 
         String actual = WWWVD.write(word);
-        String expected;
-        if (word.length() * size <= ink) {
-            expected = word;
-        } else expected = word.substring(0, ink);
+        String expected = word.length() * size <= ink ? word : word.substring(0, ink);
         assertEquals(actual, expected);
     }
 
@@ -96,11 +93,17 @@ public class TestWriteMethod extends Assert implements CreateObjectsInterface, G
     }
 
     @Parameters({"AmountOfInk"}) // specified in the testng.xml file
-    @Test(expectedExceptions = NullPointerException.class)
+    @Test
     void CatchNullPointerException(int ink) {
 
         Pen CNPE = createObjectUsingOneArgumentConstructor(ink);
-        CNPE.write(null);
+
+        try {
+            CNPE.write(null);
+            fail("No NullPointerException exception was caught.");
+        } catch (NullPointerException e) {
+            assertTrue(true, "Successfully caught exception:" + e);
+        }
     }
 
     @Test(dataProvider = "WhitespacesInWord")
@@ -123,15 +126,12 @@ public class TestWriteMethod extends Assert implements CreateObjectsInterface, G
         Pen CSIOOBE = createObjectUsingTwoArgumentConstructor(ink, size);
 
         String actual = null;
-        String expected;
         try {
             actual = CSIOOBE.write(word);
         } catch (StringIndexOutOfBoundsException e) {
-            fail("StringIndexOutOfBoundsException exception occurs.");
+            fail("Caught exception: " + e);
         }
-        if (word.length() * size <= ink) {
-            expected = word;
-        } else expected = word.substring(0, ink);
+        String expected = word.length() * size <= ink ? word : word.substring(0, ink);
         assertEquals(actual, expected);
     }
 }
